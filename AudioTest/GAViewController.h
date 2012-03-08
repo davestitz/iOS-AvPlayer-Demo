@@ -30,5 +30,6 @@
 -(IBAction) BtnPlay:(id)sender;
 -(IBAction) BtnPause:(id)sender;
 
+-(void) setupAVPlayerForURL: (NSURL*) url;
 
 @end

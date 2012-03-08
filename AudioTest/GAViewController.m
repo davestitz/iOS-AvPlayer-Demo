@@ -6,6 +6,9 @@
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
+//Please enter your URL and local file name below
+//Please decide if you are using the documents or resources folder
+
 #import "GAViewController.h"
 
 @implementation GAViewController
@@ -20,13 +23,9 @@
 
 -(IBAction) BtnGoClick:(id)sender {
     
-    NSURL *url = [[NSURL alloc] initWithString:@"http://www.gbcn.org/home/180002841/180002841/audio/JW-3.mp3"];
+    NSURL *url = [[NSURL alloc] initWithString:@""];
     
-    AVAsset *asset = [AVURLAsset URLAssetWithURL:url options:nil];
-    AVPlayerItem *anItem = [AVPlayerItem playerItemWithAsset:asset];
-
-    player = [AVPlayer playerWithPlayerItem:anItem];
-    [player addObserver:self forKeyPath:@"status" options:0 context:nil];
+    [self setupAVPlayerForURL:url];
 }
 
 -(IBAction) BtnGoLocalClick:(id)sender {
@@ -46,17 +45,19 @@
     
     // - - -
     
-    
     NSURL *url = [[NSURL alloc] initFileURLWithPath: path];
+    
+    [self setupAVPlayerForURL:url];
+}
 
+-(void) setupAVPlayerForURL: (NSURL*) url {
     AVAsset *asset = [AVURLAsset URLAssetWithURL:url options:nil];
     AVPlayerItem *anItem = [AVPlayerItem playerItemWithAsset:asset];
     
     player = [AVPlayer playerWithPlayerItem:anItem];
     [player addObserver:self forKeyPath:@"status" options:0 context:nil];
-    
-    
 }
+
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
     
