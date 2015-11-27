@@ -3,7 +3,7 @@
 //  AudioTest
 //
 //  Created by Dave Stitz on 3/7/12.
-//  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
+//  Copyright (c) 2015 Stitz. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>

@@ -3,7 +3,7 @@
 //  AudioTest
 //
 //  Created by Dave Stitz on 3/7/12.
-//  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
+//  Copyright (c) 2015 Stitz. All rights reserved.
 //
 
 //Please enter your URL and local file name below
@@ -22,9 +22,7 @@
 }
 
 -(IBAction) BtnGoClick:(id)sender {
-    
-    NSURL *url = [[NSURL alloc] initWithString:@""];
-    
+    NSURL *url = [[NSURL alloc] initWithString:@"http://www.noiseaddicts.com/samples_1w72b820/181.mp3"];
     [self setupAVPlayerForURL:url];
 }
 
@@ -36,8 +34,6 @@
     //NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     //NSString *documentsDirectory = [paths objectAtIndex:0];
     //NSString *path = [documentsDirectory stringByAppendingPathComponent:saveFileName];
-    
-    // - - -
     
     // - - - Pull media from resources direction
     
@@ -57,7 +53,6 @@
     player = [AVPlayer playerWithPlayerItem:anItem];
     [player addObserver:self forKeyPath:@"status" options:0 context:nil];
 }
-
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
     
@@ -80,44 +75,36 @@
     [player pause];
 }
 
-
 #pragma mark - View lifecycle
 
-- (void)viewDidLoad
-{
+- (void)viewDidLoad {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
 }
 
-- (void)viewDidUnload
-{
+- (void)viewDidUnload {
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
 }
 
-- (void)viewWillAppear:(BOOL)animated
-{
+- (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
 }
 
-- (void)viewDidAppear:(BOOL)animated
-{
+- (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
 }
 
-- (void)viewWillDisappear:(BOOL)animated
-{
+- (void)viewWillDisappear:(BOOL)animated {
 	[super viewWillDisappear:animated];
 }
 
-- (void)viewDidDisappear:(BOOL)animated
-{
+- (void)viewDidDisappear:(BOOL)animated {
 	[super viewDidDisappear:animated];
 }
 
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
-{
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
     // Return YES for supported orientations
     return (interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown);
 }
